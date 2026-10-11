@@ -2,7 +2,7 @@
 
 ## 1. Indexes
 
-Startup creates unique indexes on `employees.emp_code` and `attendance_logs(emp_code, date)` for identity and one row per employee/day. Department/code and join-date indexes support employee lists and headcount. Date/code and employee/date indexes support attendance pages and history; date/late-minutes/code supports leaderboard filtering. Plans still need target-scale verification.
+Startup creates unique indexes on `employees.emp_code` and `attendance_logs(emp_code, date)` for identity and one row per employee/day. Department/code and join-date indexes support employee lists and headcount. Date/code and employee/date indexes support attendance pages and history; date/late-minutes/code supports leaderboard filtering.
 
 ## 2. Simultaneous punch-ins
 
