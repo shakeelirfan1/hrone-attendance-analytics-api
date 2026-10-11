@@ -439,7 +439,7 @@ def explain_endpoint(
                                                         {"$lte": [{"$dayOfWeek": {"$dateFromString": {"dateString": "$attendance.date", "format": "%Y-%m-%d"}}}, 6]},
                                                     ]
                                                 },
-                                                {"$cond": [{"$eq": ["$attendance.half_day", true]}, 0.5, 1]},
+                                                {"$cond": [{"$eq": ["$attendance.half_day", True]}, 0.5, 1]},
                                                 0
                                             ]
                                         },
@@ -1450,7 +1450,7 @@ def department_summary(month: str, department: Optional[str] = None):
                                             {"$lte": [{"$dayOfWeek": {"$dateFromString": {"dateString": "$attendance.date", "format": "%Y-%m-%d"}}}, 6]},
                                         ]
                                     },
-                                    {"$cond": [{"$eq": ["$attendance.half_day", true]}, 0.5, 1]},
+                                    {"$cond": [{"$eq": ["$attendance.half_day", True]}, 0.5, 1]},
                                     0
                                 ]
                             },
