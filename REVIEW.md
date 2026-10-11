@@ -23,5 +23,6 @@
 
 ## Verification and limits
 
-- This revision passed Python syntax compilation, OpenAPI YAML parsing, path-set comparison (all 11 paths), request-model checks, R2 lateness examples, overnight date/overtime checks, and a focused FastAPI integration test using an in-memory fake database for create/punch/correction behavior, response serialization, status codes and the explain envelope.
-- These local tests do not execute MongoDB aggregation operators. Run this revision against MongoDB before submission to validate the collectionless `$documents` trend pipeline, query plans (IXSCAN/no COLLSCAN), concurrent requests, and results on the evaluator's 100,000-record dataset. Do not treat fake-database or small-sample tests as proof of large-scale performance.
+Verified locally against MongoDB 8.3.4 on a small test database: Python syntax, expected API routes, read-only requests, department trend response shape, trend lookup index usage, six simultaneous punch-ins (one 201 and five 409), two simultaneous punch-outs (one 200 and one 409), and two simultaneous corrections with both audit-history entries preserved.
+
+These checks do not establish performance on 100,000 records or guarantee correctness on the hidden evaluator dataset. Large-dataset performance and all hidden edge cases remain unverified.

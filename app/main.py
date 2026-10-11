@@ -736,8 +736,6 @@ class EmployeeIn(BaseModel):
                     raise ValueError
             except ValueError:
                 raise ValueError(f"{field_name} must use HH:MM format")
-        if self.shift_start == self.shift_end:
-            raise ValueError("shift_start and shift_end must differ")
         return self
 
 
